@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../../../images/LogoMotogp.png" type="image/x-icon">
+    <title>MotoGP - Pilotos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-dark">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand logo" href="/">
+                    <img src="../../../images/LogoMotogp.png" alt="MotoGP Logo" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Pilotos y Equipos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../clasificacion">Clasificación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../circuitos">Circuitos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../calendario">Calendario</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="navbar-pilotos p-3">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="mb-0">PILOTOS Y EQUIPOS</h2>
+                    <div class="nav-pilotos">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="">Pilotos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../equipos">Equipos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="contenido p-5">
+            <div class="container">
+                <div class="row g-3">
+                    <!-- Jorge Martín -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <a href="jmartin">
+                            <div class="rider-card martin">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/04/11/ab7fadd1-d2fa-41f7-a19d-833b0561f673/oE9Aa2VY.png?height=400&width=600" class="rider-image" alt="Jorge Martín">
+                                <div class="rider-number">#1</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/es.svg" class="flag-icon" alt="Spain">
+                                    <div class="rider-name">JORGE MARTIN</div>
+                                    <div class="rider-team">Aprilia Racing</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <!-- Johann Zarco -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <a href="jzarco">
+                            <div class="rider-card zarco">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/4166e780-86ca-49d8-a42b-4627d26b1f48/I8FgpnEk.png?height=400&width=600" class="rider-image" alt="Johann Zarco">
+                                <div class="rider-number">#25</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/fr.svg" class="flag-icon" alt="France">
+                                    <div class="rider-name">JOHANN ZARCO</div>
+                                    <div class="rider-team">LCR Honda</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <!-- Luca Marini -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <a href="lmarini">
+                            <div class="rider-card marini">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/5ab75f09-d4bc-4f71-baf1-02007e3b5793/iDs8u21V.png?height=400&width=600" class="rider-image" alt="Luca Marini">
+                                <div class="rider-number">#10</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/it.svg" class="flag-icon" alt="Italy">
+                                    <div class="rider-name">LUCA MARINI</div>
+                                    <div class="rider-team">Honda HRC Castrol</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <!-- Maverick Viñales -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <a href="mvinales">
+                            <div class="rider-card vinales">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/af0af1d5-a53c-47ee-988d-8ad6c37fe189/6PCFCrQu.png?height=400&width=600" class="rider-image" alt="Maverick Viñales">
+                                <div class="rider-number">#12</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/es.svg" class="flag-icon" alt="Spain">
+                                    <div class="rider-name">MAVERICK VIÑALES</div>
+                                    <div class="rider-team">Red Bull KTM Tech3</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Jorge Martín -->
+                    <div class="col-6 col-md-3">
+                        <a href="pacosta">
+                            <div class="rider-card acosta">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/31931e59-0557-4f74-8fac-326c50dd9d60/I7CE3pUc.png?height=400&width=600" class="rider-image" alt="Pedro Acosta">
+                                <div class="rider-number">#37</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/es.svg" class="flag-icon" alt="Spain">
+                                    <div class="rider-name">PEDRO ACOSTA</div>
+                                    <div class="rider-team">Red Bull KTM Factory Racing</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Johann Zarco -->
+                    <div class="col-6 col-md-3">
+                        <a href="fbagnaia">
+                            <div class="rider-card bagnaia">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/2ea90c6c-7b86-4430-bf20-9fb8761ef999/J7PRxOT5.png?height=400&width=600" class="rider-image" alt="Francesco Bagnaia">
+                                <div class="rider-number">#63</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/it.svg" class="flag-icon" alt="Italy">
+                                    <div class="rider-name">FRANCESCO BAGNAIA</div>
+                                    <div class="rider-team">Ducati Lenovo Team</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <!-- Luca Marini -->
+                    <div class="col-6 col-md-3">
+                        <a href="mmarquez">
+                            <div class="rider-card mmarquez">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/db39c323-167c-4a23-b3ae-75cfe6b06d95/jws78ATZ.png?height=400&width=600" class="rider-image" alt="Marc Marquez">
+                                <div class="rider-number">#10</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/es.svg" class="flag-icon" alt="Spain">
+                                    <div class="rider-name">MARC MARQUEZ</div>
+                                    <div class="rider-team">Ducati Lenovo Team</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+    
+                    <!-- Maverick Viñales -->
+                    <div class="col-6 col-md-3">
+                        <a href="amarquez">
+                            <div class="rider-card amarquez">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/28/6fff38e2-bd16-4cb0-ac20-3be9ee29ccd3/uzz61wfi.png?height=400&width=600" class="rider-image" alt="Alex Marquez">
+                                <div class="rider-number">#73</div>
+                                <div class="rider-info">
+                                    <img src="https://static-files.motogp.pulselive.com/assets/flags/es.svg" class="flag-icon" alt="Spain">
+                                    <div class="rider-name">ALEX MARQUEZ</div>
+                                    <div class="rider-team">BK8 Gresini Racing MotoGP</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <hr class="linea-footer">
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5>Sobre MotoGP</h5>
+                    <p class="texto">¡Mantente al día con las últimas noticias, eventos y resultados del mundo de MotoGP!</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Suscríbete a nuestras noticias</h5>
+                    <form id="formulario">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 MotoGP. Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <script src="../../../enviarcorreo.js"></script>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

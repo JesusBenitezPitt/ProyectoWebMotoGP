@@ -1,0 +1,286 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(255, 196, 0, 0.9) 250%);
+}
+
+/* Navbar */
+.navbar-custom {
+    background-color: #fff;
+    border-top: 3px solid red;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: black;
+}
+.nav-link:hover, .nav-link.active {
+    color: red !important;
+}
+.logo img {
+    height: 40px;
+}
+
+/* Contenido Principal */
+.main-container {
+    max-width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url("https://resources.motogp.pulselive.com/photo-resources/2025/02/10/31931e59-0557-4f74-8fac-326c50dd9d60/I7CE3pUc.png?height=700&width=900");
+    background-size: 50vw;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    margin: 0 auto;
+    padding: 0% 5% 3% 5%;
+    position: relative;
+    border-bottom: 2px solid white;
+}
+
+/* Navegación Superior */
+.back-link {
+    padding: 20px 0;
+}
+
+.back-link a {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.arrow-left {
+    margin-right: 10px;
+}
+
+/* Información del Piloto */
+.pilot-info {
+    margin: 40px 0;
+}
+
+.pilot-number {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+    color: #f0f0f0;
+}
+
+.pilot-name {
+    font-size: 64px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -2px;
+    color: #f0f0f0;
+    text-transform: uppercase;
+}
+
+.pilot-details {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.flag-icon {
+    width: 24px;
+    height: auto;
+}
+
+.separator {
+    color: #666;
+    margin: 0 10px;
+}
+
+/* Temporada Actual */
+.current-season {
+    margin: 60px 0;
+    max-width: 50vw;
+}
+
+.season-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.season-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.stat-value {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+/* Enlaces */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.link-item {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.link-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.teammate {
+    width: 100%;
+    height: 10vh;
+}
+
+.teammate-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.teammate-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.teammate-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.teammate-label {
+    font-size: 18px;
+    color: #999;
+}
+
+.teammate-name {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.arrow {
+    font-size: 20px;
+}
+
+/* Footer */
+
+footer {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer h5 {
+    color: red;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px #000, 0px 0px 5px #000;
+}
+
+footer p {
+    color: #d1d1d1;
+}
+
+footer .form-label {
+    color: #d1d1d1;
+}
+
+footer hr {
+    border-top: 1px solid #444;
+}
+
+footer .text-center p {
+    margin: 0;
+    color: #d1d1d1;
+}
+
+.btn-custom {
+    position: relative;
+    background: linear-gradient(to right, red 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: white;
+    font-weight: bold;
+    border: 1px solid red;
+    padding: 5px 10px;
+    transition: background-position 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.btn-custom:hover {
+    border: 1px solid red;
+    background-position: left bottom;
+    color: white;
+}
+
+/* Diseño Responsive */
+@media (max-width: 768px) {
+    .pilot-name {
+        font-size: 48px;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pilot-details {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-container {
+        background-image: none;
+    }
+
+    .current-season {
+        margin: 60px 0;
+        max-width: 100%;
+    }
+}

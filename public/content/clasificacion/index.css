@@ -1,0 +1,254 @@
+body {
+    background-color: #212529;
+}
+
+/* Header */
+.navbar-custom {
+    background-color: #fff;
+    border-top: 3px solid red;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: black;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: red !important;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Main */
+.ultima-actualizacion {
+    width: 90%;
+}
+
+.standings-container {
+    padding: 2rem;
+    background-color: #212529;
+    min-height: calc(100vh - 300px);
+}
+
+.standings-table {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.standings-table th {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #dc0000;
+    white-space: nowrap;
+    padding: 1.2rem 0.75rem;
+}
+
+.standings-table td {
+    vertical-align: middle;
+    padding: 0.8rem 0.3rem 0.8rem 0.75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.rider-number {
+    font-weight: bold;
+    color: #dc0000;
+    font-size: 0.9em;
+}
+
+.flag-icon {
+    width: 24px;
+    height: 16px;
+    margin-right: 8px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+.position-1 {
+    background-color: rgba(255, 215, 0, 0.2);
+}
+
+.position-2 {
+    background-color: rgba(192, 192, 192, 0.2);
+}
+
+.position-3 {
+    background-color: rgba(205, 127, 50, 0.2);
+}
+
+.position-1 td:first-child,
+.position-2 td:first-child,
+.position-3 td:first-child {
+    font-weight: bold;
+    color: #dc0000;
+}
+
+/* Indicador de actualización */
+.update-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, #dc0000, #ff4444);
+    animation: slideRight 1s ease-out;
+    z-index: 9999;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+#ultima-actualizacion {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Animación para cambios en la tabla */
+.standings-table tbody tr {
+    transition: all 0.3s ease-in-out;
+}
+
+.standings-table tbody tr.updated {
+    animation: highlight 1s ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: rgba(220, 0, 0, 0.1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.linea-footer {
+    margin: 2rem auto;
+    background-color: #444;
+    width: 80%;
+    height: 1px;
+    opacity: 0.8;
+    border: none;
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer h5 {
+    color: red;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px #000, 0px 0px 5px #000;
+}
+
+footer p {
+    color: #d1d1d1;
+}
+
+footer .form-label {
+    color: #d1d1d1;
+}
+
+footer hr {
+    border-top: 1px solid #444;
+}
+
+footer .text-center p {
+    margin: 0;
+    color: #d1d1d1;
+}
+
+.btn-custom {
+    background-color: #dc0000;
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #b00000;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .standings-container {
+        padding: 1rem;
+    }
+    
+    .table td, .table th {
+        padding: 10px 0 0 0;
+        font-size: 0.9em;
+    }
+    
+    .rider-number {
+        display: block;
+    }
+    
+    #ultima-actualizacion {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Estilos para el toast */
+.swal2-container-custom {
+    gap: 10px !important;
+    flex-direction: column-reverse !important;
+    align-items: flex-end !important;
+}
+
+.swal2-close-white {
+    color: white !important;
+}
+
+.swal2-timer-custom {
+    height: 3px !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.swal2-timer-custom:before {
+    background: white !important;
+}
+
+.swal2-toast-slide {
+    animation: slideIn 0.5s ease-out;
+    margin: 0.5em !important;
+}
+
+.swal2-toast-slide-out {
+    animation: slideOut 0.5s ease-out forwards !important;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideOut {
+    from { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to { 
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}

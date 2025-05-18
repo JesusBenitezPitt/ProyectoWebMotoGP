@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pilotos - Jorge Martin</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="index.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body class="bg-dark">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-custom">
+                <div class="container">
+                    <a class="navbar-brand logo" href="../../../../index.html">
+                        <img src="../../../../images/LogoMotogp.png" alt="MotoGP Logo">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../../../index.html">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../pilotos/index.html">Pilotos y Equipos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../../clasificacion/index.html">Clasificación</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../../circuitos/index.html">Circuitos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../../calendario/index.html">Calendario</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="main-container">
+                <br>
+                <div class="back-link">
+                    <a href="../index.html" class="text-white text-decoration-none">
+                        <span class="arrow-left">←</span> TODOS LOS PILOTOS
+                    </a>
+                </div>
+    
+                <div class="pilot-info">
+                    <div class="pilot-header">
+                        <h1 class="pilot-number">#MV12</h1>
+                        <h2 class="pilot-name">MAVERICK VIÑALES</h2>
+                        <div class="pilot-details">
+                            <img src="https://static-files.motogp.pulselive.com/assets/flags/es.svg" alt="Spain" class="flag-icon">
+                            <span class="country">Spain</span>
+                            <span class="separator">|</span>
+                            <span class="team">Red Bull KTM Tech3</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <section class="current-season">
+                    <h3 class="season-title">TEMPORADA ACTUAL</h3>
+                    <div class="stats-container">
+                        <div class="stat-box">
+                            <div class="stat-label">POSICIÓN</div>
+                            <div class="stat-value" id="posicion"></div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">PUNTOS</div>
+                            <div class="stat-value" id="puntos"></div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">CARRERAS GANADAS</div>
+                            <div class="stat-value" id="victorias"></div>
+                        </div>
+                    </div>
+
+                    <div class="links-container">
+                        <div class="link-item teammate">
+                            <div class="teammate-info">
+                                <img src="https://resources.motogp.pulselive.com/photo-resources/2025/02/10/cc91f6f5-00b2-468d-8bf0-587cb6e586ff/IYo43ylh.png?height=700&width=900" alt="Enea Bastianini" class="teammate-img">
+                                <div class="teammate-text">
+                                    <span class="teammate-label">COMPAÑERO DE EQUIPO</span>
+                                    <span class="teammate-name">Enea Bastianini</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <h5>Sobre MotoGP</h5>
+                        <p class="texto">¡Mantente al día con las últimas noticias, eventos y resultados del mundo de MotoGP!</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Suscríbete a nuestras noticias</h5>
+                        <form id="formulario">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-custom">Suscribirse</button>
+                        </form>
+                    </div>
+                </div>
+                <hr class="my-4">
+                <div class="text-center">
+                    <p>&copy; 2025 MotoGP. Todos los derechos reservados.</p>
+                </div>
+            </div>
+            <script src="../../../../enviarcorreo.js"></script>
+            <script src="../desc.js"></script>
+        </footer>
+    </body>
+</html>

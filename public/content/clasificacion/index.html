@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="images/LogoMotogp.png" type="image/x-icon">
+    <title>MotoGP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">
+                <img src="../../images/LogoMotogp.png" alt="MotoGP Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../pilotos-y-equipos/pilotos/index.html">Pilotos y Equipos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../clasificacion">Clasificación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../circuitos">Circuitos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../calendario">Calendario</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <main>
+        <div class="standings-container">
+            <div class="container">
+                <h2 class="mb-4 font-weight-bold text-white">Clasificación MotoGP™ 2025</h2>
+                <div id="ultima-actualizacion" class="text-end mb-3">
+                </div>
+                <div class="table-responsive standings-table">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Pos.</th>
+                                <th>Piloto</th>
+                                <th>Nacionalidad</th>
+                                <th>Equipo</th>
+                                <th>Puntos</th>
+                            </tr>
+                        </thead>
+                        <tbody id="standings-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <hr class="linea-footer">
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <h5>Sobre MotoGP</h5>
+                    <p class="texto">¡Mantente al día con las últimas noticias, eventos y resultados del mundo de MotoGP!</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Suscríbete a nuestras noticias</h5>
+                    <form id="formulario">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2025 MotoGP. Todos los derechos reservados.</p>
+            </div>
+        </div>
+        <script src="clasificacion.js"></script>
+        <script src="../../enviarcorreo.js"></script>
+    </footer>
+</body>
+</html>
