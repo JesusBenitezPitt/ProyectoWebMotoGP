@@ -1,0 +1,178 @@
+body {
+    background-color: #212529;
+    color: white;
+}
+
+/* Navbar styles */
+.navbar-custom {
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 3px solid red;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 2rem;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: black !important;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: red !important;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/* Calendar styles */
+.contenedor {
+    padding: 2rem;
+}
+
+.contenedor h2 {
+    font-weight: bold;
+    color: black;
+}
+
+.races-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.race-card {
+    background-color: #2c3135;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: 110% -30%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.race-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.race-status {
+    position: absolute;
+    top: 0px;
+    right: -25px;
+    padding: 4px 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    z-index: 1;
+    border-radius:  0 0 0 10px;
+}
+
+.status-finished {
+    width: 35%;
+    background-color: #000000;
+}
+
+.status-not-started {
+    width: 35%;
+    background-color: #FF0000;
+    color: white;
+}
+
+.race-header {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem 1.5rem 0.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.race-date {
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: #adb5bd;
+    text-align: left;
+}
+
+.race-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.race-country {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.country-flag {
+    width: 24px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.country-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+}
+
+.race-title {
+    font-size: 1rem;
+    color: #adb5bd;
+    line-height: 1.4;
+}
+
+.race-circuit {
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-style: italic;
+} 
+
+@media (max-width: 496px) {
+    .status-finished {
+        width: 40%;
+        background-color: #000000;
+    }
+
+    .status-not-started {
+        width: 50%;
+        background-color: #FF0000;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 906px) {
+    .status-finished {
+        width: 30%;
+        background-color: #000000;
+    }
+
+    .status-not-started {
+        width: 30%;
+        background-color: #FF0000;
+    }
+}
+
+@media (max-width: 906px) {
+    .status-finished {
+        width: 50%;
+        background-color: #000000;
+    }
+
+    .status-not-started {
+        width: 50%;
+        background-color: #FF0000;
+    }
+}

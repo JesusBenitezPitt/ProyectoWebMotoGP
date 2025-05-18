@@ -1,39 +1,74 @@
 document.addEventListener('DOMContentLoaded', function() {
     cargarClasificacion();
 });
+
+// Mapeo de códigos de país del XML a códigos ISO de dos letras
+const codigosPais = {
+    'SPA': 'es',
+    'ITA': 'it',
+    'FRA': 'fr',
+    'USA': 'us',
+    'GER': 'de',
+    'AUS': 'au',
+    'JPN': 'jp',
+    'GBR': 'gb',
+    'RSA': 'za',
+    'POR': 'pt',
+    'ARG': 'ar',
+    'THA': 'th',
+    'MAL': 'my',
+    'QAT': 'qa',
+    'IDN': 'id',
+    'NED': 'nl',
+    'CZE': 'cz',
+    'AUT': 'at',
+    'SMR': 'sm',
+    'CAT': 'es'  // Cataluña usa la bandera de España para la API
+};
+
 async function cargarClasificacion() {
     try {
-        const response = await fetch('https://motogp-datos.duckdns.org/data');
-        const data = await response.json();
-        const standings = data.classification;
+        const response = await fetch('https://motogp-datos.duckdns.org/clasificacion');
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, "text/xml");
         
+        const pilotos = xmlDoc.getElementsByTagName('worldstanding_rider');
         const tbody = document.getElementById('standings-body');
-        
         const fragment = document.createDocumentFragment();
         
-        standings.forEach((rider, index) => {
+        Array.from(pilotos).forEach((piloto, index) => {
             const row = document.createElement('tr');
             if (index < 3) {
                 row.classList.add(`position-${index + 1}`);
             }
 
+            const posicion = piloto.getAttribute('pos');
+            const numero = piloto.getAttribute('rider_number');
+            const nombreCompleto = `${piloto.getAttribute('rider_name')} ${piloto.getAttribute('rider_surname')}`;
+            const pais = piloto.getAttribute('country_name');
+            const codigoPaisXML = piloto.getAttribute('country_shortname');
+            const codigoPaisISO = codigosPais[codigoPaisXML] || codigoPaisXML.toLowerCase();
+            const equipo = piloto.getAttribute('team_name');
+            const puntos = piloto.getAttribute('total_points') / 10;
+
             row.innerHTML = `
-                <td class="text-center">${rider.position}</td>
+                <td class="text-center">${posicion}</td>
                 <td>
                     <div class="d-flex align-items-center justify-content-center">
-                        <span class="rider-number">#${rider.rider.number}</span>
-                        <span class="ms-2">${rider.rider.full_name}</span>
+                        <span class="rider-number">#${numero}</span>
+                        <span class="ms-2">${nombreCompleto}</span>
                     </div>
                 </td>
                 <td>
                     <div class="d-flex align-items-center justify-content-center">
-                        <img src="https://static-files.motogp.pulselive.com/assets/flags/${rider.rider.country.iso.toLowerCase()}.svg" 
-                             alt="${rider.rider.country.name}" 
+                        <img src="https://static-files.motogp.pulselive.com/assets/flags/${codigoPaisISO}.svg" 
+                             alt="${pais}" 
                              class="flag-icon">
                     </div>
                 </td>
-                <td class="text-center">${rider.team.name}</td>
-                <td class="fw-bold text-center">${rider.points}</td>
+                <td class="text-center">${equipo}</td>
+                <td class="fw-bold text-center">${puntos}</td>
             `;
 
             fragment.appendChild(row);
@@ -46,6 +81,7 @@ async function cargarClasificacion() {
         mostrarIndicadorActualizacion();
 
     } catch (error) {
+        console.error('Error al cargar la clasificación:', error);
         
         // Toast de error
         const Toast = Swal.mixin({
@@ -79,25 +115,24 @@ async function cargarClasificacion() {
 function actualizarTimestamp() {
     const ahora = new Date();
     const opciones = { 
-        day: '2-digit',
-        month: 'long',
+        day: '2-digit', 
+        month: 'long', 
         year: 'numeric',
-        hour: '2-digit', 
+        hour: '2-digit',
         minute: '2-digit',
+        second: '2-digit',
         hour12: false
     };
-    const fechaFormateada = ahora.toLocaleDateString('es-ES', opciones);
-    
-    document.getElementById('ultima-actualizacion').innerHTML = 
-        `<div class="ultima-actualizacion">Última actualización: ${fechaFormateada}</div>`;
+    const timestamp = ahora.toLocaleDateString('es-ES', opciones);
+    document.getElementById('ultima-actualizacion').textContent = `Última actualización: ${timestamp}`;
 }
 
 function mostrarIndicadorActualizacion() {
-    const indicator = document.createElement('div');
-    indicator.className = 'update-indicator';
-    document.body.appendChild(indicator);
-
+    const indicador = document.createElement('div');
+    indicador.className = 'update-indicator';
+    document.body.appendChild(indicador);
+    
     setTimeout(() => {
-        indicator.remove();
+        indicador.remove();
     }, 1000);
 }

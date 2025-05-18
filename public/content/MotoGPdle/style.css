@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(41, 41, 41);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar styles */
+.navbar-custom {
+    font-weight: bold;
+    background-color: #fff;
+    border-top: 3px solid red;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+    margin-bottom: 2rem;
+}
+
+.nav-link {
+    font-weight: bold;
+    color: black !important;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: red !important;
+}
+
+.logo img {
+    height: 40px;
+}
+
+#container-custom {
+    flex: 1;
+    min-height: calc(100vh - 300px);
+    margin-bottom: 3rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    font-size: 1em;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    background-color: rgb(37, 37, 37);
+    color: white;
+}
+
+.suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgb(34, 34, 34);
+    border: 1px solid red;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+
+.suggestion {
+    padding: 12px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.suggestion:hover {
+    background-color: red;
+}
+
+.grid-container {
+    margin-top: 30px;
+}
+
+.grid-header {
+    display: grid;
+    text-align: center;
+    border-bottom: 1px solid red;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    gap: 8px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.guess-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+}
+
+.column {
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+}
+
+.correct {
+    background-color: #28a745;
+}
+
+.wrong {
+    background-color: rgba(71, 71, 71, 0.774);
+}
+
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 4px;
+    display: none;
+    font-weight: 500;
+}
+
+.message.success {
+    background-color: #28a745;
+    display: block;
+}
+
+.message.error {
+    background-color: #28a745;
+    display: block;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 4px;
+}
+
+.next-game {
+    font-size: 1.1em;
+    color: #ff4655;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1b2733;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.next-game span {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Estilos para SweetAlert2 */
+.swal2-popup {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    padding-top: 2em !important;
+}
+
+.swal2-close-button {
+    position: absolute !important;
+    right: 8px !important;
+    top: 8px !important;
+    color: #ffffff !important;
+    font-size: 1.5em !important;
+}
+
+.swal2-icon-small {
+    font-size: 0.8em !important;
+    margin: 0.5em auto !important;
+}
+
+.swal2-icon {
+    border-width: 2px !important;
+    margin-top: 1.5em !important;
+}
+
+.swal2-title {
+    font-size: 1.5em !important;
+    margin-bottom: 0.5em !important;
+    padding-top: 0 !important;
+}
+
+.swal2-html-container {
+    margin: 0.5em !important;
+} 

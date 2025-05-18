@@ -7,40 +7,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="index.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/public/templates/templates.js"></script>
     </head>
     <body class="bg-dark">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-custom">
-                <div class="container">
-                    <a class="navbar-brand logo" href="../../../../index.html">
-                        <img src="../../../../images/LogoMotogp.png" alt="MotoGP Logo">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../../../index.html">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../pilotos/index.html">Pilotos y Equipos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../../clasificacion/index.html">Clasificación</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../../circuitos/index.html">Circuitos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../../../calendario/index.html">Calendario</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <nav class="navbar navbar-expand-lg navbar-custom" id="navbar-custom"></nav>
         </header>
         <main>
             <div class="main-container">
@@ -95,31 +67,8 @@
                 </section>
             </div>
         </main>
-        <footer class="bg-dark text-white py-4">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <h5>Sobre MotoGP</h5>
-                        <p class="texto">¡Mantente al día con las últimas noticias, eventos y resultados del mundo de MotoGP!</p>
-                    </div>
-                    <div class="col-md-6">
-                        <h5>Suscríbete a nuestras noticias</h5>
-                        <form id="formulario">
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Correo Electrónico</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
-                            </div>
-                            <button type="submit" class="btn btn-custom">Suscribirse</button>
-                        </form>
-                    </div>
-                </div>
-                <hr class="my-4">
-                <div class="text-center">
-                    <p>&copy; 2025 MotoGP. Todos los derechos reservados.</p>
-                </div>
-            </div>
-            <script src="../../../../enviarcorreo.js"></script>
-            <script src="../desc.js"></script>
-        </footer>
+        <footer class="bg-dark text-white py-4" id="footer-custom"></footer>
+        <script src="../desc.js"></script>
+        <script src="/public/enviarcorreo.js"></script>
     </body>
 </html>

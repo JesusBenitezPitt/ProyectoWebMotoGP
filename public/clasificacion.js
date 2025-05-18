@@ -1,19 +1,23 @@
-function formatearNombre(nombreCompleto) {
-
-    const palabras = nombreCompleto.split(' ');
-    if (palabras.length === 1) return palabras[0];
-    const inicial = palabras[0][0];
-    const apellido = palabras[palabras.length - 1];
-    return `${inicial}. ${apellido}`;
+function formatearNombre(nombre, apellido) {
+    return `${nombre[0]}. ${apellido}`;
 }
 
 async function obtenerClasificacion() {
     try {
-        const response = await fetch('https://motogp-datos.duckdns.org/data');
-        const datos = await response.json();
-        const standings = datos.classification;
+        const response = await fetch('https://motogp-datos.duckdns.org/clasificacion');
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        
+        const pilotos = Array.from(xmlDoc.getElementsByTagName('worldstanding_rider'))
+            .map(piloto => ({
+                rider: {
+                    full_name: `${piloto.getAttribute('rider_name')} ${piloto.getAttribute('rider_surname')}`
+                },
+                points: parseInt(piloto.getAttribute('total_points') / 10)
+            }));
 
-        actualizarTablaClasificacion(datos.classification);
+        actualizarTablaClasificacion(pilotos);
     } catch (error) {
         console.error('Error al obtener la clasificación:', error);
     }
@@ -33,7 +37,10 @@ function actualizarTablaClasificacion(standings) {
             const fila = document.createElement('tr');
             fila.className = clases[index];
             
-            const nombreFormateado = formatearNombre(piloto.rider.full_name);
+            const nombreFormateado = formatearNombre(
+                piloto.rider.full_name.split(' ')[0],
+                piloto.rider.full_name.split(' ')[1]
+            );
             
             fila.innerHTML = `
                 <td><span>${medallas[index]}</span></td>

@@ -35,8 +35,8 @@ body {
 }
 
 .standings-table {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
@@ -194,7 +194,7 @@ footer .text-center p {
     }
     
     .table td, .table th {
-        padding: 10px 0 0 0;
+        padding: 10px 0 10px 0 ;
         font-size: 0.9em;
     }
     
@@ -250,5 +250,12 @@ footer .text-center p {
     to { 
         transform: translateY(100%);
         opacity: 0;
+    }
+}
+
+@media (min-width: 990px) {
+    .standings-table {
+        width: 100%;
+        margin: 0;
     }
 }

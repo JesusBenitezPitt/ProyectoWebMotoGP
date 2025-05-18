@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoGP Wordle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/public/templates/templates.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom" id="navbar-custom"></nav>
+
+    <div class="container" id="container-custom">
+        <header>
+            <h1>MotoGP Wordle</h1>
+            <p>¡Adivina el piloto de MotoGP!</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar piloto..." autocomplete="off">
+            <div id="suggestions" class="suggestions-container"></div>
+        </div>
+
+        <div class="grid-container">
+            <div class="grid-header">
+                <div>Piloto</div>
+                <div>País</div>
+                <div>Equipo</div>
+                <div>Número</div>
+            </div>
+            <div id="guesses"></div>
+        </div>
+
+        <div id="message" class="message"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <footer class="bg-dark text-white py-4" id="footer-custom"></footer>
+    <script src="/public/enviarcorreo.js"></script>
+</body>
+</html> 
