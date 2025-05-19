@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', obtenerClasificacion); 
+
 function formatearNombre(nombre, apellido) {
     return `${nombre[0]}. ${apellido}`;
 }
@@ -52,6 +54,3 @@ function actualizarTablaClasificacion(standings) {
         }
     });
 }
-
-// Cargar la clasificación cuando se carga la página
-document.addEventListener('DOMContentLoaded', obtenerClasificacion); 

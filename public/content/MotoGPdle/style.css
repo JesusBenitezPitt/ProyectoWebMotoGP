@@ -228,3 +228,51 @@ h1 {
 .swal2-html-container {
     margin: 0.5em !important;
 } 
+
+footer {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 20px 0;
+    width: 100%;
+}
+
+footer h5 {
+    color: red;
+    font-weight: bold;
+    text-shadow: 0px 0px 3px #000, 0px 0px 5px #000;
+}
+
+footer p {
+    color: #d1d1d1;
+}
+
+footer .form-label {
+    color: #d1d1d1;
+}
+
+footer hr {
+    border-top: 1px solid #444;
+}
+
+footer .text-center p {
+    margin: 0;
+    color: #d1d1d1;
+}
+
+.btn-custom {
+    position: relative;
+    background: linear-gradient(to right, red 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    color: white !important;
+    font-weight: bold !important;
+    border: 1px solid red !important;
+    padding: 5px 10px !important;
+    transition: background-position 0.5s ease-in-out, color 0.5s ease-in-out !important;
+}
+
+.btn-custom:hover {
+    border: 1px solid red;
+    background-position: left bottom;
+    color: white;
+}

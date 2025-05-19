@@ -6,7 +6,6 @@ async function cargarCalendario() {
     try {
         const response = await fetch('https://motogp-datos.duckdns.org/calendario');
         const eventos = await response.json();
-        console.log('Datos recibidos:', eventos);
         
         const contenedor = document.getElementById('races-grid');
         if (!contenedor) {
@@ -16,18 +15,13 @@ async function cargarCalendario() {
 
         const fragment = document.createDocumentFragment();
 
-        console.log('Todos los eventos:', eventos);
-
         const eventosFiltrados = eventos.filter(evento => {
-            // Solo queremos eventos de MotoGP que no sean test
-            return evento?.legacy_id?.some(id => id.categoryId === 1) && // Es MotoGP
-                   !evento.additional_name?.toLowerCase().includes('test') && // No es test
-                   !evento.sponsored_name?.toLowerCase().includes('test'); // Verificación adicional en el nombre del evento
+
+            return evento?.legacy_id?.some(id => id.categoryId === 1) &&
+                   !evento.additional_name?.toLowerCase().includes('test') && 
+                   !evento.sponsored_name?.toLowerCase().includes('test');
         });
 
-        console.log('Eventos filtrados:', eventosFiltrados);
-
-        // Encontrar el índice del último evento FINISHED
         const lastFinishedIndex = eventosFiltrados.findLastIndex(evento => evento.status === 'FINISHED');
         
         const imagenes = {
@@ -64,17 +58,11 @@ async function cargarCalendario() {
             const tarjeta = document.createElement('div');
             tarjeta.className = 'race-card';
 
-            // Depuración
-            console.log('País del evento:', evento.country);
-            console.log('Nombre adicional:', evento.additional_name);
-            console.log('Imagen correspondiente:', imagenes[evento.additional_name]);
-
             if (evento.additional_name) {
                 tarjeta.style.backgroundImage = `url('${imagenes[evento.additional_name]}')`;
             }
 
             try {
-                // Solo mostrar estado para FINISHED y el primer NOT STARTED
                 let estado = null;
                 if (index <= lastFinishedIndex) {
                     estado = 'ACABADA';
@@ -82,7 +70,6 @@ async function cargarCalendario() {
                     estado = 'PRÓXIMA';
                 }
 
-                // Formatear las fechas
                 const fechaInicio = new Date(evento.date_start);
                 const fechaFin = new Date(evento.date_end);
                 const diaInicio = fechaInicio.getDate().toString().padStart(2, '0');
@@ -91,7 +78,6 @@ async function cargarCalendario() {
                 const mesFin = fechaFin.toLocaleDateString('es-ES', { month: 'short' }).toUpperCase();
                 const fechaFormateada = `${diaInicio} ${mesInicio} - ${diaFin} ${mesFin}`;
 
-                // Obtener el número de carrera del legacy_id para categoría 1 (MotoGP)
                 const numeroCarrera = evento.legacy_id?.find(id => id.categoryId === 1)?.eventId || '';
 
                 tarjeta.innerHTML = `

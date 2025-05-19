@@ -32,6 +32,8 @@ async function cargarClasificacion() {
         const xmlText = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+        const esMovil = window.matchMedia("(max-width: 768px)").matches;
         
         const pilotos = xmlDoc.getElementsByTagName('worldstanding_rider');
         const tbody = document.getElementById('standings-body');
@@ -52,24 +54,41 @@ async function cargarClasificacion() {
             const equipo = piloto.getAttribute('team_name');
             const puntos = piloto.getAttribute('total_points') / 10;
 
-            row.innerHTML = `
-                <td class="text-center">${posicion}</td>
-                <td>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <span class="rider-number">#${numero}</span>
-                        <span class="ms-2">${nombreCompleto}</span>
-                    </div>
-                </td>
-                <td>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="https://static-files.motogp.pulselive.com/assets/flags/${codigoPaisISO}.svg" 
-                             alt="${pais}" 
-                             class="flag-icon">
-                    </div>
-                </td>
-                <td class="text-center">${equipo}</td>
-                <td class="fw-bold text-center">${puntos}</td>
-            `;
+            if (esMovil) {
+                // Formato compacto y visualmente atractivo para móvil
+                row.innerHTML = `
+                    <td class="align-middle text-center fw-bold p-3">${posicion}</td>
+                    <td class="align-middle">
+                        <div class="d-flex gap-2">
+                            <span class="rider-number">#${numero}</span>
+                            <span class="fw-bold">${nombreCompleto} <img src="https://static-files.motogp.pulselive.com/assets/flags/${codigoPaisISO}.svg" 
+                                 alt="${pais}" class="ms-2" style="width: 20px; height: 16px;"></span>
+                        </div>
+                        <div class="text-muted small mt-1">${equipo}</div>
+                    </td>
+                    <td class="align-middle fw-bold text-center">${puntos}</td>
+                `;
+
+            } else {
+                // Formato normal para escritorio
+                row.innerHTML = `
+                    <td class="text-center align-middle">${posicion}</td>
+                    <td class="align-middle">
+                        <div class="d-flex align-items-center justify-content-center gap-2">
+                            <span class="rider-number">#${numero}</span>
+                            <span class="fw-semibold">${nombreCompleto}</span>
+                        </div>
+                    </td>
+                    <td class="align-middle">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="https://static-files.motogp.pulselive.com/assets/flags/${codigoPaisISO}.svg" 
+                                 alt="${pais}" style="width: 22px; height: 16px;">
+                        </div>
+                    </td>
+                    <td class="align-middle text-center">${equipo}</td>
+                    <td class="align-middle fw-bold text-center">${puntos}</td>
+                `;
+            }
 
             fragment.appendChild(row);
         });

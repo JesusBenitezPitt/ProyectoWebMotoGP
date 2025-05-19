@@ -61,6 +61,18 @@ video{
     margin-left: 0;
 }
 
+@media (max-width: 1000px) {
+    .overlay {
+        margin-top: 10vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .container{
+        padding: 0 30px;
+    }
+}
+
 @media (min-width: 768px) {
     .overlay .container {
         padding-right: 15px;

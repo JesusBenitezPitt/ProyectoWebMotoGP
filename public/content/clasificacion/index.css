@@ -187,7 +187,6 @@ footer .text-center p {
     color: white;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .standings-container {
         padding: 1rem;
@@ -197,14 +196,39 @@ footer .text-center p {
         padding: 10px 0 10px 0 ;
         font-size: 0.9em;
     }
+
+    .posicion {
+        padding-right: 10px;
+    }
     
     .rider-number {
         display: block;
+        font-weight: bold;
     }
     
     #ultima-actualizacion {
         text-align: center;
         margin-bottom: 1rem;
+    }
+}
+
+@media (412px <= width <= 768px) {
+    .standings-table {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .rider-number {
+        font-size: 1em;
+    }
+    
+    .flag-icon {
+        width: 20px;
+        height: 14px;
+    }
+    
+    .position-1, .position-2, .position-3 {
+        font-size: 1em;
     }
 }
 
