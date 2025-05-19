@@ -39,7 +39,7 @@ document.addEventListener('submit', async function(event) {
             const emailData = {
                 to: jsonData.email,
                 subject: "¡Gracias por suscribirte a MotoGP!",
-                htmlBody: emailTemplate
+                htmlBody: emailTemplate,
             };
 
             const params = new URLSearchParams();
@@ -47,7 +47,7 @@ document.addEventListener('submit', async function(event) {
             params.append('subject', "¡Gracias por suscribirte a MotoGP!");
             params.append('htmlBody', emailTemplate);
 
-            await fetch("https://script.google.com/macros/s/AKfycbz2sQjXD-v0FK9MIGuswr4NxKdF3s3djc9LK7GybN8fLYRCuT95RecaFSQl1f97tg/exec", {
+            await fetch("https://script.google.com/macros/s/AKfycbxwvlV_yjND1SgnFpk5vAH4zSVwrkUMh57qRMS2RmpBEeOZXvhqEHDnliwnNvqR1dRb/exec", {
                 method: "POST",
                 body: params
             });
