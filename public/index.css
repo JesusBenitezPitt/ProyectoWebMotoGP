@@ -24,6 +24,19 @@ main {
     height: 40px;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 4px;
+}
+
 /* Video de fondo */
 video{
     position: absolute;

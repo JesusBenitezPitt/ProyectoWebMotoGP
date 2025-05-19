@@ -25,7 +25,7 @@ async function obtenerClasificacion() {
     }
 }
 
-function actualizarTablaClasificacion(standings) {
+const actualizarTablaClasificacion = (standings) => {
     const tbody = document.querySelector('.podio tbody');
     if (!tbody) return;
 

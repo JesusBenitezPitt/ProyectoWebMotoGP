@@ -76,7 +76,7 @@ async function mostrarProximaCarrera() {
     }
 }
 
-function formatearFecha(fecha) {
+const formatearFecha = (fecha) => {
     try {
         const dia = fecha.getDate().toString().padStart(2, '0');
         const mes = fecha.toLocaleDateString('es-ES', { month: 'short' })

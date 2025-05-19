@@ -8,13 +8,13 @@ const suggestionsContainer = document.getElementById('suggestions');
 const guessesContainer = document.getElementById('guesses');
 
 // Función para obtener la fecha actual en formato YYYY-MM-DD
-function obtenerFechaActual() {
+const obtenerFechaActual = () => {
     const fecha = new Date();
     return `${fecha.getFullYear()}-${String(fecha.getMonth() + 1).padStart(2, '0')}-${String(fecha.getDate()).padStart(2, '0')}`;
 }
 
 // Función para calcular el tiempo restante hasta la medianoche
-function obtenerTiempoRestante() {
+const obtenerTiempoRestante = () => {
     const ahora = new Date();
     const medianoche = new Date(ahora);
     medianoche.setHours(24, 0, 0, 0);
@@ -116,20 +116,6 @@ async function cargarPilotos() {
     } catch (error) {
         mostrarMensaje('Error', 'No se pudieron cargar los datos de los pilotos', 'error');
     }
-}
-
-// Función para calcular la edad
-function calcularEdad(fechaNacimiento) {
-    const fechaNac = new Date(fechaNacimiento);
-    const hoy = new Date();
-    let edad = hoy.getFullYear() - fechaNac.getFullYear();
-    const mes = hoy.getMonth() - fechaNac.getMonth();
-    
-    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
-        edad--;
-    }
-    
-    return edad;
 }
 
 document.addEventListener('DOMContentLoaded', cargarPilotos);

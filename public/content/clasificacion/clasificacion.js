@@ -131,7 +131,7 @@ async function cargarClasificacion() {
     }
 }
 
-function actualizarTimestamp() {
+const actualizarTimestamp = () => {
     const ahora = new Date();
     const opciones = { 
         day: '2-digit', 
