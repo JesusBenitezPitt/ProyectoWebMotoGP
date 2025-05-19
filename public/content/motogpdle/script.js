@@ -113,11 +113,7 @@ async function cargarPilotos() {
         } else {
             pilotoObjetivo = obtenerPilotoDiario(pilotos);
         }
-
-        console.log('Pilotos cargados:', pilotos);
-        console.log('Piloto objetivo:', pilotoObjetivo);
     } catch (error) {
-        console.error('Error al cargar los pilotos:', error);
         mostrarMensaje('Error', 'No se pudieron cargar los datos de los pilotos', 'error');
     }
 }

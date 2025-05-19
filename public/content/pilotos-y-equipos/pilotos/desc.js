@@ -11,13 +11,30 @@ async function cargarDatosPiloto() {
         // Obtener el último segmento que será el nombre del piloto
         const currentPage = segments[segments.length - 1];
         
-        console.log("Ruta completa:", path);
-        console.log("Segmentos:", segments);
         console.log("Página del piloto:", currentPage);
         
-        const response = await fetch('https://motogp-datos.duckdns.org/data');
-        const data = await response.json();
-        const pilotos = data.classification;
+        const response = await fetch('https://motogp-datos.duckdns.org/clasificacion');
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        const pilotos = Array.from(xmlDoc.getElementsByTagName('worldstanding_rider'))
+            .map(piloto => {
+                const eventos = Array.from(piloto.getElementsByTagName('event'));
+                const victorias = eventos.filter(evento => {
+                    const sesiones = Array.from(evento.getElementsByTagName('session'));
+                    const sesionRace = sesiones.find(s => s.getAttribute('session_name') === 'Race');
+                    return sesionRace && Number(sesionRace.getAttribute('points')) >= 250;
+                }).length;
+                return {
+                    rider: {
+                        pos: `${piloto.getAttribute('pos')}`,
+                        full_name: `${piloto.getAttribute('rider_name')} ${piloto.getAttribute('rider_surname')}`,
+                    },
+                    points: parseInt(piloto.getAttribute('total_points') / 10),
+                    wins: victorias
+                };
+            });
+
         console.log(pilotos);
         
         const pilotosMap = {
@@ -35,24 +52,22 @@ async function cargarDatosPiloto() {
         console.log("ID del piloto:", pilotoId);
         
         if (pilotoId) {
-            const piloto = pilotos.find(p => p.rider.full_name.toLowerCase() === pilotoId.toLowerCase());
-            console.log("Datos del piloto:", piloto);
-            
-            if (piloto) {
-                const puntosPiloto = piloto.points || '0';
-                const posicionPiloto = piloto.position || '-';
-                const victoriasPiloto = piloto.race_wins || '0';
+            pilotos.forEach((piloto) => {
+                if(piloto.rider.full_name.toLocaleLowerCase() == pilotoId.toLocaleLowerCase()){
+                    const puntosPiloto = piloto.points || '0';
+                    const posicionPiloto = piloto.rider.pos || '-';
+                    const victoriasPiloto = piloto.wins || '0';
 
-                const lugarPuntos = document.getElementById('puntos');
-                const lugarPosicion = document.getElementById('posicion');
-                const lugarVictorias = document.getElementById('victorias');
+                    const lugarPuntos = document.getElementById('puntos');
+                    const lugarPosicion = document.getElementById('posicion');
+                    const lugarVictorias = document.getElementById('victorias');
 
-                if (lugarPuntos) lugarPuntos.textContent = puntosPiloto;
-                if (lugarPosicion) lugarPosicion.textContent = posicionPiloto;
-                if (lugarVictorias) lugarVictorias.textContent = victoriasPiloto;
-            }
+                    if (lugarPuntos) lugarPuntos.textContent = puntosPiloto;
+                    if (lugarPosicion) lugarPosicion.textContent = posicionPiloto;
+                    if (lugarVictorias) lugarVictorias.textContent = victoriasPiloto;
+                }
+            });
         }
-
     } catch (error) {
         console.error("Error:", error);
         
