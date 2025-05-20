@@ -209,7 +209,6 @@ function mostrarMensaje(titulo, texto, tipo) {
         title: titulo,
         text: texto,
         icon: tipo,
-        iconSize: 'sm',
         position: 'top',
         showCloseButton: true,
         showConfirmButton: false,
@@ -238,7 +237,6 @@ function mostrarMensajeFinal(titulo, texto, tipo) {
             </div>
         `,
         icon: tipo,
-        iconSize: 'sm',
         position: 'center',
         showCloseButton: true,
         showConfirmButton: false,

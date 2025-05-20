@@ -39,7 +39,7 @@ document.addEventListener('submit', async function(event) {
             const emailData = {
                 to: jsonData.email,
                 subject: "¡Gracias por suscribirte a MotoGP!",
-                htmlBody: emailTemplate,
+                htmlBody: emailTemplate
             };
 
             const params = new URLSearchParams();

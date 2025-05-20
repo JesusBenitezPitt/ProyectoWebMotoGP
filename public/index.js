@@ -56,51 +56,6 @@ document.getElementById("formulario").addEventListener("submit", async function(
             }
         });
 
-        // Agregar estilos personalizados
-        if (!document.getElementById('swal2-custom-styles')) {
-            const styles = document.createElement('style');
-            styles.id = 'swal2-custom-styles';
-            styles.innerHTML = `
-                .swal2-container-custom {
-                    gap: 10px !important;
-                    flex-direction: column-reverse !important;
-                    align-items: flex-end !important;
-                }
-                .swal2-close-white {
-                    color: white !important;
-                }
-                .swal2-timer-custom {
-                    height: 3px !important;
-                    background: rgba(255, 255, 255, 0.5) !important;
-                }
-                .swal2-timer-custom:before {
-                    background: white !important;
-                }
-                .swal2-toast-slide {
-                    animation: slideIn 0.5s ease-out;
-                    margin: 0.5em !important;
-                }
-                .swal2-toast-slide-out {
-                    animation: slideOut 0.5s ease-out forwards !important;
-                }
-                @keyframes slideIn {
-                    from { transform: translateX(100%); }
-                    to { transform: translateX(0); }
-                }
-                @keyframes slideOut {
-                    from { 
-                        transform: translateY(0);
-                        opacity: 1;
-                    }
-                    to { 
-                        transform: translateY(100%);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(styles);
-        }
-
         Toast.fire({
             icon: 'success',
             title: '¡Suscripción exitosa!',

@@ -117,7 +117,8 @@ a{
     z-index: 1;
 }
 
-.rider-card::after {
+@media (min-width: 1000px){
+    .rider-card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -131,6 +132,7 @@ a{
         rgba(0,0,0,0) 100%
     );
     z-index: 2;
+}
 }
 
 .rider-info {
@@ -269,8 +271,14 @@ footer .text-center p {
     }
 }
 
+@media (max-width: 1006px){
+    .rider-name, .rider-number {
+        font-size: 20px;
+    }
+}
+
 /* Modificación para dispositivos móviles */
-@media (max-width: 854px) {
+@media (max-width: 1000px) {
     .row {
         gap: 0 !important;
         margin: 0;
