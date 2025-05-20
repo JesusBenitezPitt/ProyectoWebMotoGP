@@ -1,6 +1,14 @@
 # Video de fondo
 public/images/videofondo.mp4
 
+#Archivos de configuración de Firebase
+.firebaserc
+firebase.json
+.firebase/*
+
+# Archivos de VSC
+public/.vscode/*
+
 # Logs
 logs
 *.log
