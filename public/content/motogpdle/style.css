@@ -6,7 +6,6 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(41, 41, 41);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -50,6 +49,7 @@ header {
 h1 {
     color: #ffffff;
     font-size: 2.5em;
+    font-weight: bold;
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -276,4 +276,13 @@ footer .text-center p {
     border: 1px solid red;
     background-position: left bottom;
     color: white;
+}
+
+.linea-footer {
+    margin: 2rem auto;
+    background-color: #444;
+    width: 80%;
+    height: 1px;
+    opacity: 0.8;
+    border: none;
 }
