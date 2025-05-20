@@ -1,11 +1,11 @@
 # __Proyecto Web: MotoGP 🏍️__
 Este proyecto es una página web basada en la competición mundial de carreras de motos que se realiza a lo largo del año por todo el mundo, pasando por varios GP (Grandes Premios). Conocido como MotoGP, es el campeonato mundial de motociclismo de velocidad más prestigioso y antiguo del mundo. Fue inaugurado en 1949 por la Federación Internacional de Motociclismo (FIM), y desde entonces ha evolucionado tanto en tecnología como en popularidad.
 
-*Si quieres usar el código de esta y quieres que se muestre el video de fondo en el indice, tienes que descargarlo desde [aqui](https://google.com) y ponerlo en la carpeta __images__.*
+*Si quieres usar el código de esta y quieres que se muestre el video de fondo en el indice, tienes que descargarlo desde [aqui](https://drive.google.com/file/d/1puvAYScf5rjdKdlDJAeyQ9NvcHPIT7ZO/view) y ponerlo en la carpeta __images__.*
 
 # __Estructura del proyecto__
 ## __Index__
-Página principal del proyecto, donde se encuentra la información de la proxima carrera, la información de este apartado se recoge automaticamente en el archivo [proximacarrera.js](public/proximacarrera.js), también se encuentra un pequeño podio donde se muestran los 3 primeros mejores de la competición hasta lo que llevamos de temporada, la información de este apartado tambien se construye dinámicamente desde [clasificacion.js](public/clasificacion.js).
+Página principal del proyecto, donde se encuentra la información de la proxima carrera, la información de este apartado se recoge automaticamente en el archivo [proximacarrera.js](public/proximacarrera.js), también se encuentra un pequeño podio donde se muestran los 3 primeros mejores de la competici   ón hasta lo que llevamos de temporada, la información de este apartado tambien se construye dinámicamente desde [clasificacion.js](public/clasificacion.js).
 
 ![index](https://i.imgur.com/EPt33MH.png)
 
