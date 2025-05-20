@@ -22,9 +22,8 @@ const obtenerTiempoRestante = () => {
     
     const horas = Math.floor(diferencia / (1000 * 60 * 60));
     const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
     
-    return `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+    return `${String(horas).padStart(2)} horas y ${String(minutos).padStart(2)} minutos.`;
 }
 
 // Función para generar una semilla basada en la fecha
@@ -57,6 +56,7 @@ function cargarEstadoJuego() {
 
 // Función para guardar el estado del juego
 function guardarEstadoJuego() {
+    if (modoExtra) return;
     const estado = {
         fecha: obtenerFechaActual(),
         intentos: intentos,
@@ -98,6 +98,9 @@ async function cargarPilotos() {
             intentos = estadoGuardado.intentos;
             pilotoObjetivo = estadoGuardado.pilotoObjetivo;
             searchInput.disabled = estadoGuardado.completado;
+
+            document.getElementById('intentos-actuales').textContent = intentos.length;
+            document.getElementById('intentos-maximos').textContent = maxIntentos;
             
             // Mostrar intentos anteriores
             intentos.forEach(intento => mostrarIntento(intento));
@@ -107,7 +110,7 @@ async function cargarPilotos() {
                 if (intentos[intentos.length - 1].nombre === pilotoObjetivo.nombre) {
                     mostrarMensajeFinal('¡Victoria!', '¡Felicidades! Has encontrado al piloto correcto.', 'success');
                 } else {
-                    mostrarMensajeFinal('¡Fin del juego!', `Se acabaron los intentos. El piloto era ${pilotoObjetivo.nombre}`, 'error');
+                    mostrarMensajeFinal('¡Fin del juego!', `Se acabaron los intentos. <br>El piloto era <b>${pilotoObjetivo.nombre}</b>`, 'error');
                 }
             }
         } else {
@@ -157,11 +160,6 @@ document.addEventListener('click', (e) => {
 });
 
 function seleccionarPiloto(piloto) {
-    if (intentos.some(intento => intento.nombre === piloto.nombre)) {
-        mostrarMensaje('¡Atención!', '¡Ya has intentado con este piloto!', 'warning');
-        return;
-    }
-
     intentos.push(piloto);
     searchInput.value = '';
     suggestionsContainer.style.display = 'none';
@@ -171,16 +169,16 @@ function seleccionarPiloto(piloto) {
         mostrarMensajeFinal('¡Victoria!', '¡Felicidades! Has encontrado al piloto correcto.', 'success');
         searchInput.disabled = true;
     } else if (intentos.length >= maxIntentos) {
-        mostrarMensajeFinal('¡Fin del juego!', `Se acabaron los intentos. El piloto era ${pilotoObjetivo.nombre}`, 'error');
+        mostrarMensajeFinal('¡Fin del juego!', `Se acabaron los intentos. <br>El piloto era <b>${pilotoObjetivo.nombre}</b>`, 'error');
         searchInput.disabled = true;
     }
 
-    // Guardar estado después de cada intento
-    guardarEstadoJuego();
+    if (!modoExtra) guardarEstadoJuego();
 }
 
 function mostrarIntento(piloto) {
     const row = document.createElement('div');
+    document.getElementById('intentos-actuales').textContent = intentos.length;
     row.className = 'guess-row';
 
     const nombreDiv = crearColumna(piloto.nombre, piloto.nombre === pilotoObjetivo.nombre);
@@ -225,6 +223,20 @@ function mostrarMensaje(titulo, texto, tipo) {
     Swal.fire(config);
 }
 
+let modoExtra = false;
+
+function reiniciarJuego() {
+    modoExtra = true;
+    pilotoObjetivo = pilotos[Math.floor(Math.random() * pilotos.length)];
+    intentos = [];
+    document.getElementById('guesses').innerHTML = '';
+    document.getElementById('intentos-actuales').textContent = '0';
+    document.getElementById('message').textContent = '';
+    searchInput.disabled = false;
+    searchInput.value = '';
+    Swal.close();
+}
+
 function mostrarMensajeFinal(titulo, texto, tipo) {
     const tiempoRestante = obtenerTiempoRestante();
     
@@ -234,6 +246,11 @@ function mostrarMensajeFinal(titulo, texto, tipo) {
             ${texto}<br><br>
             <div style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
                 Próximo juego en: <b>${tiempoRestante}</b>
+            </div>
+            <br>
+            <div class="text-end">
+                <button class="btn btn-primary" id="btn-jugar">Jugar otra vez</button>
+                <button class="btn btn-secondary" id="btn-cerrar">Cerrar</button>
             </div>
         `,
         icon: tipo,
@@ -247,6 +264,10 @@ function mostrarMensajeFinal(titulo, texto, tipo) {
         customClass: {
             closeButton: 'swal2-close-button',
             icon: 'swal2-icon-small'
+        },
+        didOpen: () => {
+            document.getElementById('btn-jugar').addEventListener('click', reiniciarJuego);
+            document.getElementById('btn-cerrar').addEventListener('click', () => Swal.close());
         }
     };
 
